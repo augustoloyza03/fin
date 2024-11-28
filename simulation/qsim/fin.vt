@@ -1,0 +1,592 @@
+// Copyright (C) 1991-2013 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "11/28/2024 15:59:30"
+                                                                        
+// Verilog Self-Checking Test Bench (with test vectors) for design :    fin
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module fin_vlg_sample_tst(
+	ADC_DOUT,
+	clk50M,
+	reset,
+	s,
+	sensor,
+	sampler_tx
+);
+input  ADC_DOUT;
+input  clk50M;
+input  reset;
+input  s;
+input  sensor;
+output sampler_tx;
+
+reg sample;
+time current_time;
+always @(ADC_DOUT or clk50M or reset or s or sensor)
+                                                                                
+begin                                                 
+ if ($realtime > 0)                                   
+ begin                                                
+	if ($realtime == 0 || $realtime != current_time)  
+	begin									          
+		if (sample === 1'bx)                          
+			sample = 0;                               
+		else                                          
+			sample = ~sample;                         
+	end										          
+	current_time = $realtime;					      
+ end                                                  
+end                                                   
+
+assign sampler_tx = sample;
+endmodule
+
+module fin_vlg_check_tst (
+	ADC_CS_N,
+	ADC_DIN,
+	ADC_SCLK,
+	clk1M,
+	clk40K,
+	ea,
+	eg,
+	Md0,
+	Md1,
+	Mi0,
+	Mi1,
+	Vd,
+	Vi,
+	sampler_rx
+);
+input  ADC_CS_N;
+input  ADC_DIN;
+input  ADC_SCLK;
+input  clk1M;
+input  clk40K;
+input  ea;
+input  eg;
+input  Md0;
+input  Md1;
+input  Mi0;
+input  Mi1;
+input  Vd;
+input  Vi;
+input sampler_rx;
+
+reg  ADC_CS_N_expected;
+reg  ADC_DIN_expected;
+reg  ADC_SCLK_expected;
+reg  clk1M_expected;
+reg  clk40K_expected;
+reg  ea_expected;
+reg  eg_expected;
+reg  Md0_expected;
+reg  Md1_expected;
+reg  Mi0_expected;
+reg  Mi1_expected;
+reg  Vd_expected;
+reg  Vi_expected;
+
+reg  ADC_CS_N_prev;
+reg  ADC_DIN_prev;
+reg  ADC_SCLK_prev;
+reg  clk1M_prev;
+reg  clk40K_prev;
+reg  ea_prev;
+reg  eg_prev;
+reg  Md0_prev;
+reg  Md1_prev;
+reg  Mi0_prev;
+reg  Mi1_prev;
+reg  Vd_prev;
+reg  Vi_prev;
+
+reg  ADC_CS_N_expected_prev;
+reg  ADC_DIN_expected_prev;
+reg  ADC_SCLK_expected_prev;
+reg  clk1M_expected_prev;
+reg  clk40K_expected_prev;
+reg  ea_expected_prev;
+reg  eg_expected_prev;
+reg  Md0_expected_prev;
+reg  Md1_expected_prev;
+reg  Mi0_expected_prev;
+reg  Mi1_expected_prev;
+reg  Vd_expected_prev;
+reg  Vi_expected_prev;
+
+reg  last_ADC_CS_N_exp;
+reg  last_ADC_DIN_exp;
+reg  last_ADC_SCLK_exp;
+reg  last_clk1M_exp;
+reg  last_clk40K_exp;
+reg  last_ea_exp;
+reg  last_eg_exp;
+reg  last_Md0_exp;
+reg  last_Md1_exp;
+reg  last_Mi0_exp;
+reg  last_Mi1_exp;
+reg  last_Vd_exp;
+reg  last_Vi_exp;
+
+reg trigger;
+
+integer i;
+integer nummismatches;
+
+reg [1:13] on_first_change ;
+
+
+initial
+begin
+trigger = 0;
+i = 0;
+nummismatches = 0;
+on_first_change = 13'b1;
+end
+
+// update real /o prevs
+
+always @(trigger)
+begin
+	ADC_CS_N_prev = ADC_CS_N;
+	ADC_DIN_prev = ADC_DIN;
+	ADC_SCLK_prev = ADC_SCLK;
+	clk1M_prev = clk1M;
+	clk40K_prev = clk40K;
+	ea_prev = ea;
+	eg_prev = eg;
+	Md0_prev = Md0;
+	Md1_prev = Md1;
+	Mi0_prev = Mi0;
+	Mi1_prev = Mi1;
+	Vd_prev = Vd;
+	Vi_prev = Vi;
+end
+
+// update expected /o prevs
+
+always @(trigger)
+begin
+	ADC_CS_N_expected_prev = ADC_CS_N_expected;
+	ADC_DIN_expected_prev = ADC_DIN_expected;
+	ADC_SCLK_expected_prev = ADC_SCLK_expected;
+	clk1M_expected_prev = clk1M_expected;
+	clk40K_expected_prev = clk40K_expected;
+	ea_expected_prev = ea_expected;
+	eg_expected_prev = eg_expected;
+	Md0_expected_prev = Md0_expected;
+	Md1_expected_prev = Md1_expected;
+	Mi0_expected_prev = Mi0_expected;
+	Mi1_expected_prev = Mi1_expected;
+	Vd_expected_prev = Vd_expected;
+	Vi_expected_prev = Vi_expected;
+end
+
+
+
+// expected Md0
+initial
+begin
+	Md0_expected = 1'bX;
+end 
+
+// expected Md1
+initial
+begin
+	Md1_expected = 1'bX;
+end 
+
+// expected Mi0
+initial
+begin
+	Mi0_expected = 1'bX;
+end 
+
+// expected Mi1
+initial
+begin
+	Mi1_expected = 1'bX;
+end 
+
+// expected Vd
+initial
+begin
+	Vd_expected = 1'bX;
+end 
+
+// expected Vi
+initial
+begin
+	Vi_expected = 1'bX;
+end 
+
+// expected ADC_CS_N
+initial
+begin
+	ADC_CS_N_expected = 1'bX;
+end 
+
+// expected ADC_DIN
+initial
+begin
+	ADC_DIN_expected = 1'bX;
+end 
+
+// expected ADC_SCLK
+initial
+begin
+	ADC_SCLK_expected = 1'bX;
+end 
+
+// expected clk1M
+initial
+begin
+	clk1M_expected = 1'bX;
+end 
+
+// expected clk40K
+initial
+begin
+	clk40K_expected = 1'bX;
+end 
+
+// expected ea
+initial
+begin
+	ea_expected = 1'bX;
+end 
+
+// expected eg
+initial
+begin
+	eg_expected = 1'bX;
+end 
+// generate trigger
+always @(ADC_CS_N_expected or ADC_CS_N or ADC_DIN_expected or ADC_DIN or ADC_SCLK_expected or ADC_SCLK or clk1M_expected or clk1M or clk40K_expected or clk40K or ea_expected or ea or eg_expected or eg or Md0_expected or Md0 or Md1_expected or Md1 or Mi0_expected or Mi0 or Mi1_expected or Mi1 or Vd_expected or Vd or Vi_expected or Vi)
+begin
+	trigger <= ~trigger;
+end
+
+always @(posedge sampler_rx or negedge sampler_rx)
+begin
+`ifdef debug_tbench
+	$display("Scanning pattern %d @time = %t",i,$realtime );
+	i = i + 1;
+	$display("| expected ADC_CS_N = %b | expected ADC_DIN = %b | expected ADC_SCLK = %b | expected clk1M = %b | expected clk40K = %b | expected ea = %b | expected eg = %b | expected Md0 = %b | expected Md1 = %b | expected Mi0 = %b | expected Mi1 = %b | expected Vd = %b | expected Vi = %b | ",ADC_CS_N_expected_prev,ADC_DIN_expected_prev,ADC_SCLK_expected_prev,clk1M_expected_prev,clk40K_expected_prev,ea_expected_prev,eg_expected_prev,Md0_expected_prev,Md1_expected_prev,Mi0_expected_prev,Mi1_expected_prev,Vd_expected_prev,Vi_expected_prev);
+	$display("| real ADC_CS_N = %b | real ADC_DIN = %b | real ADC_SCLK = %b | real clk1M = %b | real clk40K = %b | real ea = %b | real eg = %b | real Md0 = %b | real Md1 = %b | real Mi0 = %b | real Mi1 = %b | real Vd = %b | real Vi = %b | ",ADC_CS_N_prev,ADC_DIN_prev,ADC_SCLK_prev,clk1M_prev,clk40K_prev,ea_prev,eg_prev,Md0_prev,Md1_prev,Mi0_prev,Mi1_prev,Vd_prev,Vi_prev);
+`endif
+	if (
+		( ADC_CS_N_expected_prev !== 1'bx ) && ( ADC_CS_N_prev !== ADC_CS_N_expected_prev )
+		&& ((ADC_CS_N_expected_prev !== last_ADC_CS_N_exp) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port ADC_CS_N :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", ADC_CS_N_expected_prev);
+		$display ("     Real value = %b", ADC_CS_N_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_ADC_CS_N_exp = ADC_CS_N_expected_prev;
+	end
+	if (
+		( ADC_DIN_expected_prev !== 1'bx ) && ( ADC_DIN_prev !== ADC_DIN_expected_prev )
+		&& ((ADC_DIN_expected_prev !== last_ADC_DIN_exp) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port ADC_DIN :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", ADC_DIN_expected_prev);
+		$display ("     Real value = %b", ADC_DIN_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_ADC_DIN_exp = ADC_DIN_expected_prev;
+	end
+	if (
+		( ADC_SCLK_expected_prev !== 1'bx ) && ( ADC_SCLK_prev !== ADC_SCLK_expected_prev )
+		&& ((ADC_SCLK_expected_prev !== last_ADC_SCLK_exp) ||
+			on_first_change[3])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port ADC_SCLK :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", ADC_SCLK_expected_prev);
+		$display ("     Real value = %b", ADC_SCLK_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[3] = 1'b0;
+		last_ADC_SCLK_exp = ADC_SCLK_expected_prev;
+	end
+	if (
+		( clk1M_expected_prev !== 1'bx ) && ( clk1M_prev !== clk1M_expected_prev )
+		&& ((clk1M_expected_prev !== last_clk1M_exp) ||
+			on_first_change[4])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port clk1M :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", clk1M_expected_prev);
+		$display ("     Real value = %b", clk1M_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[4] = 1'b0;
+		last_clk1M_exp = clk1M_expected_prev;
+	end
+	if (
+		( clk40K_expected_prev !== 1'bx ) && ( clk40K_prev !== clk40K_expected_prev )
+		&& ((clk40K_expected_prev !== last_clk40K_exp) ||
+			on_first_change[5])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port clk40K :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", clk40K_expected_prev);
+		$display ("     Real value = %b", clk40K_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[5] = 1'b0;
+		last_clk40K_exp = clk40K_expected_prev;
+	end
+	if (
+		( ea_expected_prev !== 1'bx ) && ( ea_prev !== ea_expected_prev )
+		&& ((ea_expected_prev !== last_ea_exp) ||
+			on_first_change[6])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port ea :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", ea_expected_prev);
+		$display ("     Real value = %b", ea_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[6] = 1'b0;
+		last_ea_exp = ea_expected_prev;
+	end
+	if (
+		( eg_expected_prev !== 1'bx ) && ( eg_prev !== eg_expected_prev )
+		&& ((eg_expected_prev !== last_eg_exp) ||
+			on_first_change[7])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port eg :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", eg_expected_prev);
+		$display ("     Real value = %b", eg_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[7] = 1'b0;
+		last_eg_exp = eg_expected_prev;
+	end
+	if (
+		( Md0_expected_prev !== 1'bx ) && ( Md0_prev !== Md0_expected_prev )
+		&& ((Md0_expected_prev !== last_Md0_exp) ||
+			on_first_change[8])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port Md0 :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", Md0_expected_prev);
+		$display ("     Real value = %b", Md0_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[8] = 1'b0;
+		last_Md0_exp = Md0_expected_prev;
+	end
+	if (
+		( Md1_expected_prev !== 1'bx ) && ( Md1_prev !== Md1_expected_prev )
+		&& ((Md1_expected_prev !== last_Md1_exp) ||
+			on_first_change[9])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port Md1 :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", Md1_expected_prev);
+		$display ("     Real value = %b", Md1_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[9] = 1'b0;
+		last_Md1_exp = Md1_expected_prev;
+	end
+	if (
+		( Mi0_expected_prev !== 1'bx ) && ( Mi0_prev !== Mi0_expected_prev )
+		&& ((Mi0_expected_prev !== last_Mi0_exp) ||
+			on_first_change[10])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port Mi0 :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", Mi0_expected_prev);
+		$display ("     Real value = %b", Mi0_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[10] = 1'b0;
+		last_Mi0_exp = Mi0_expected_prev;
+	end
+	if (
+		( Mi1_expected_prev !== 1'bx ) && ( Mi1_prev !== Mi1_expected_prev )
+		&& ((Mi1_expected_prev !== last_Mi1_exp) ||
+			on_first_change[11])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port Mi1 :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", Mi1_expected_prev);
+		$display ("     Real value = %b", Mi1_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[11] = 1'b0;
+		last_Mi1_exp = Mi1_expected_prev;
+	end
+	if (
+		( Vd_expected_prev !== 1'bx ) && ( Vd_prev !== Vd_expected_prev )
+		&& ((Vd_expected_prev !== last_Vd_exp) ||
+			on_first_change[12])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port Vd :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", Vd_expected_prev);
+		$display ("     Real value = %b", Vd_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[12] = 1'b0;
+		last_Vd_exp = Vd_expected_prev;
+	end
+	if (
+		( Vi_expected_prev !== 1'bx ) && ( Vi_prev !== Vi_expected_prev )
+		&& ((Vi_expected_prev !== last_Vi_exp) ||
+			on_first_change[13])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port Vi :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", Vi_expected_prev);
+		$display ("     Real value = %b", Vi_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[13] = 1'b0;
+		last_Vi_exp = Vi_expected_prev;
+	end
+
+	trigger <= ~trigger;
+end
+initial 
+
+begin 
+$timeformat(-12,3," ps",6);
+#1000000;
+if (nummismatches > 0)
+	$display ("%d mismatched vectors : Simulation failed !",nummismatches);
+else
+	$display ("Simulation passed !");
+$finish;
+end 
+endmodule
+
+module fin_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg ADC_DOUT;
+reg clk50M;
+reg reset;
+reg s;
+reg sensor;
+// wires                                               
+wire ADC_CS_N;
+wire ADC_DIN;
+wire ADC_SCLK;
+wire clk1M;
+wire clk40K;
+wire ea;
+wire eg;
+wire Md0;
+wire Md1;
+wire Mi0;
+wire Mi1;
+wire Vd;
+wire Vi;
+
+wire sampler;                             
+
+// assign statements (if any)                          
+fin i1 (
+// port map - connection between master ports and signals/registers   
+	.ADC_CS_N(ADC_CS_N),
+	.ADC_DIN(ADC_DIN),
+	.ADC_DOUT(ADC_DOUT),
+	.ADC_SCLK(ADC_SCLK),
+	.clk1M(clk1M),
+	.clk40K(clk40K),
+	.clk50M(clk50M),
+	.ea(ea),
+	.eg(eg),
+	.Md0(Md0),
+	.Md1(Md1),
+	.Mi0(Mi0),
+	.Mi1(Mi1),
+	.reset(reset),
+	.s(s),
+	.sensor(sensor),
+	.Vd(Vd),
+	.Vi(Vi)
+);
+
+// clk50M
+always
+begin
+	clk50M = 1'b0;
+	clk50M = #10000 1'b1;
+	#10000;
+end 
+
+// reset
+initial
+begin
+	reset = 1'b1;
+end 
+
+// s
+initial
+begin
+	s = 1'b0;
+end 
+
+// sensor
+initial
+begin
+	sensor = 1'b0;
+	sensor = #80000 1'b1;
+	sensor = #90000 1'b0;
+end 
+
+// ADC_DOUT
+initial
+begin
+	ADC_DOUT = 1'b0;
+end 
+
+fin_vlg_sample_tst tb_sample (
+	.ADC_DOUT(ADC_DOUT),
+	.clk50M(clk50M),
+	.reset(reset),
+	.s(s),
+	.sensor(sensor),
+	.sampler_tx(sampler)
+);
+
+fin_vlg_check_tst tb_out(
+	.ADC_CS_N(ADC_CS_N),
+	.ADC_DIN(ADC_DIN),
+	.ADC_SCLK(ADC_SCLK),
+	.clk1M(clk1M),
+	.clk40K(clk40K),
+	.ea(ea),
+	.eg(eg),
+	.Md0(Md0),
+	.Md1(Md1),
+	.Mi0(Mi0),
+	.Mi1(Mi1),
+	.Vd(Vd),
+	.Vi(Vi),
+	.sampler_rx(sampler)
+);
+endmodule
+

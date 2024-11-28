@@ -1,0 +1,36 @@
+
+State Machine - |fin|derecho:inst18|avanzar:inst2|state
+Name state.CI state.CD state.avanzar state.ocioso 
+state.ocioso 0 0 0 0 
+state.avanzar 0 0 1 1 
+state.CD 0 1 0 1 
+state.CI 1 0 0 1 
+
+State Machine - |fin|derecho:inst18|esqumaticoADC:inst|adc:inst|adc_adc_mega_0:adc_mega_0|altera_up_avalon_adv_adc:ADC_CTRL|currState
+Name currState.doneState currState.transState currState.waitState currState.resetState currState.pauseState 
+currState.resetState 0 0 0 0 0 
+currState.waitState 0 0 1 1 0 
+currState.transState 0 1 0 1 0 
+currState.doneState 1 0 0 1 0 
+currState.pauseState 0 0 0 1 1 
+
+State Machine - |fin|Antirreboteesquema:inst21|Antirrebote:inst|estado
+Name estado.FP estado.B estado.FN estado.A 
+estado.A 0 0 0 0 
+estado.FN 0 0 1 1 
+estado.B 0 1 0 1 
+estado.FP 1 0 0 1 
+
+State Machine - |fin|ubicacion:inst22|orientacion:inst1|state
+Name state.O state.E state.S state.N 
+state.N 0 0 0 0 
+state.S 0 0 1 1 
+state.E 0 1 0 1 
+state.O 1 0 0 1 
+
+State Machine - |fin|prueba1:inst|doblar2:inst|state
+Name state.reversa state.izq state.der state.parado 
+state.parado 0 0 0 0 
+state.der 0 0 1 1 
+state.izq 0 1 0 1 
+state.reversa 1 0 0 1 
